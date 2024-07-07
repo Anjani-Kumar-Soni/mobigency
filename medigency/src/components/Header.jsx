@@ -3,12 +3,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const router = useRouter();
   const [display, setDisplay] = useState(false);
   const handleLogout = () => {
     sessionStorage.removeItem("email");
+    toast.success("Logged out successfully");
     router.push("/Login");
   };
   return (
