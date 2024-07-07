@@ -82,14 +82,15 @@ const Page = () => {
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     const res = await response.json();
+    // console.log(res)
     if (res.status == 200) {
-      console.log(res.message);
+      // console.log(res.message);
       sessionStorage.setItem("email", data.email);
-      toast.success(res.message)
+      toast.success(res.message);
       router.push("/Home");
     } else {
-      console.error(res.message);
-      toast.error(res.message)
+      // console.error(res.message);
+      toast.error(res.message);
     }
   };
   return (

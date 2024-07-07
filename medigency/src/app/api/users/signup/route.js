@@ -28,7 +28,7 @@ export const POST = async(req) => {
         } = reqBody;
         const user = await User.findOne({ email });
         if (user) {
-            return NextResponse.json({ message: "User already exists" }, { status: 400 });
+            return NextResponse.json({ message: "User already exists", status: 400 });
         }
 
         const salt = await bcryptjs.genSalt(10);
@@ -54,8 +54,8 @@ export const POST = async(req) => {
             problems,
         });
         await currUser.save();
-        return NextResponse.json({ message: "Signup successful" }, { status: 200 });
+        return NextResponse.json({ message: "Signup successful", status: 200 });
     } catch (e) {
-        return NextResponse.json({ message: e.message }, { status: 500 });
+        return NextResponse.json({ message: e.message, status: 500 });
     }
 };

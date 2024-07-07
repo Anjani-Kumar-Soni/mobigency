@@ -23,7 +23,7 @@ const Page = () => {
     });
     const res = await response.json();
     if (res.status == 200) {
-      console.log(res);
+      // console.log(res);
       sessionStorage.setItem("email", data.email);
       toast.success(res.message);
       router.push("/Home");
