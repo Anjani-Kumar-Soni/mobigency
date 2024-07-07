@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Page = () => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -21,10 +22,15 @@ const Page = () => {
       body: JSON.stringify(data),
     });
     const res = await response.json();
-    if (response.ok) {
+    if (res.status == 200) {
+      console.log(res);
       sessionStorage.setItem("email", data.email);
+      toast.success(res.message);
       router.push("/Home");
-    } else console.log(res.message);
+    } else {
+      // console.log(res.message);
+      toast.error(res.message);
+    }
   };
 
   return (
@@ -84,12 +90,15 @@ const Page = () => {
             </button>
             <div className="flex justify-center mt-5">
               <p className="text-gray-500">{"Don't"} have an account?</p>
-              <Link
-                href="/SignUp"
-                className="ml-1 font-bold cursor-pointer text-blue-600"
-              >
-                Sign Up Now
-              </Link>
+              <span>
+                <Link
+                  href="/SignUp"
+                  className="ml-1 font-bold cursor-pointer text-blue-600 mr-1"
+                >
+                  Sign Up
+                </Link>
+              </span>
+              <span className="text-gray-500"> now</span>
             </div>
           </div>
         </form>

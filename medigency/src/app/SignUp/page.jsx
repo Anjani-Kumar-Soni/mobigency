@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const router = useRouter();
@@ -81,11 +82,15 @@ const Page = () => {
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
     const res = await response.json();
-    if (response.ok) {
+    if (res.status == 200) {
       console.log(res.message);
-      if (res.status == 200) router.push("/Home");
-    } else console.error(res.message);
-    console.log(data);
+      sessionStorage.setItem("email", data.email);
+      toast.success(res.message)
+      router.push("/Home");
+    } else {
+      console.error(res.message);
+      toast.error(res.message)
+    }
   };
   return (
     <div className="flex items-center justify-center h-auto my-2">
@@ -215,7 +220,7 @@ const Page = () => {
                 type="text"
                 id="emergency_name"
                 name="emergency_name"
-                placeholder="Enter name of the person to be contacted in case of emergency"
+                placeholder="Enter emergency contact name"
                 value={data.emergency.userName}
                 required
                 onChange={(e) => {
