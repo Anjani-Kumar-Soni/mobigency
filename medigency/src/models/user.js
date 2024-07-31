@@ -101,15 +101,10 @@ const userSchema = new mongoose.Schema({
             },
         },
     },
-
-    // isVerified: {
-    //     type: Boolean,
-    //     default: false,
-    // },
-    // forgotPassWordToken: String,
-    // forgotPasswordTokenExpiry: Date,
-    // verifyToken: String,
-    // verifyTokenExpiry: Date,
+    isVerified: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const User = mongoose.models.users || new mongoose.model("users", userSchema);

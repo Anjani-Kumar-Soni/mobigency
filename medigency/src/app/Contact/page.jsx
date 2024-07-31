@@ -1,12 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const [data, setData] = useState({
     heading: "",
     description: "",
-    email: "rishabhkumarsharma2002@gmail.com",
+    email: "",
   });
+  const [emailPresent, setEmailPresent] = useState(false);
+  useEffect(() => {
+    const curr_email = sessionStorage.getItem("email");
+    if (curr_email) {
+      setData({ ...data, email: curr_email });
+      setEmailPresent(true);
+    }
+  }, []);
+
   const handleChange = (e) => {
     setData({
       ...data,
@@ -34,6 +43,25 @@ const Page = () => {
         </h1>
         <form>
           <div className="px-4">
+            {!emailPresent && (
+              <div className="mb-4">
+                <label
+                  htmlFor="emailID"
+                  className="leading-7 text-sm text-gray-600"
+                >
+                  Email ID
+                </label>
+                <input
+                  type="text"
+                  id="emailID"
+                  name="email"
+                  value={data.email}
+                  placeholder="Write your email id here"
+                  onChange={handleChange}
+                  className="w-full border-b-4 bg-white rounded border border-third focus:border-second focus:ring-2 focus:ring-third text-base outline-none text-second py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            )}
             <div className="mb-4">
               <label
                 htmlFor="heading"
@@ -66,7 +94,7 @@ const Page = () => {
             </div>
             <button
               type="submit"
-              // onSubmit={handleSubmit}
+              onClick={handleSubmit}
               className="w-full bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer hover:bg-blue-500"
             >
               Submit

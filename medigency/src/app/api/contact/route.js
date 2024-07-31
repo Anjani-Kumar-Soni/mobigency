@@ -1,9 +1,8 @@
-export async function POST(req, res) {
-    try {
-        const { heading, description, email } = await req.json();
-        console.log(heading, description, email);
-        Response.json({ message: "Hello" });
-    } catch (e) {
-        console.error(e);
-    }
-}
+import { NextResponse } from "next/server";
+import { sendMail } from "../../../utils/mailer";
+
+export const POST = async(req) => {
+    const { heading, description, email } = await req.json();
+    await sendMail(email, "query", description, heading);
+    return NextResponse.json({ message: "Hello" });
+};
