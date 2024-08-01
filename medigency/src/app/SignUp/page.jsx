@@ -79,7 +79,7 @@ const Page = () => {
   };
 
   const increment = () => {
-    if (formIndex < 3) setFormIndex(formIndex + 1);
+    if (formIndex < 4) setFormIndex(formIndex + 1);
   };
   const decrement = () => {
     if (formIndex > 1) setFormIndex(formIndex - 1);
