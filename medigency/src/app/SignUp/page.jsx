@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Form1 from "../../components/Form1";
 import Form2 from "../../components/Form2";
 import Form3 from "../../components/Form3";
+import Form4 from "../../components/Form4";
 
 const Page = () => {
   const router = useRouter();
@@ -98,7 +99,7 @@ const Page = () => {
         return (
           <Form2
             data={data}
-            setData={setData}
+            handleChange={handleChange}
             increment={increment}
             decrement={decrement}
           />
@@ -107,9 +108,17 @@ const Page = () => {
         return (
           <Form3
             data={data}
-            handleChange={handleChange}
             setData={setData}
             increment={increment}
+            decrement={decrement}
+          />
+        );
+      case 4:
+        return (
+          <Form4
+            data={data}
+            handleChange={handleChange}
+            setData={setData}
             decrement={decrement}
           />
         );
@@ -124,7 +133,7 @@ const Page = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center h-auto my-2">
+    <div className="flex items-center justify-center h-[100vh] my-2">
       <div className="p-3 bg-white max-w-lg w-full rounded-lg border border-t-2 border-primary">
         {getForm()}
         <div className="flex justify-center mt-5">
