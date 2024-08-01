@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkmark } from "react-checkmark";
+// import { Checkmark } from "react-checkmark";
 
 const Form1 = ({ data, handleChange, increment }) => {
   const [emailVerified, setEmailVerified] = useState(false);

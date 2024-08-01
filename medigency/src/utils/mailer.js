@@ -3,17 +3,17 @@ import nodemailer from "nodemailer";
 export const sendMail = async(email, emailType, description, heading) => {
     console.log(email, emailType, description, heading);
     const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
+        host: NEXT_PUBLIC_SMTP_HOST,
+        port: NEXT_PUBLIC_SMTP_PORT,
         secure: false, // Use `true` for port 465, `false` for all other ports
         auth: {
-            user: "aniducation@gmail.com",
-            pass: "eflp widz paeu wzxp",
+            user: NEXT_PUBLIC_SMTP_USER,
+            pass: NEXT_PUBLIC_SMTP_PASSWORD,
         },
     });
     try {
         const info = await transporter.sendMail({
-            from: "aniducation@gmail.com", // sender address
+            from: NEXT_PUBLIC_SMTP_USER, // sender address
             to: email, // list of receivers
             subject: heading, // Subject line
             text: description, // plain text body

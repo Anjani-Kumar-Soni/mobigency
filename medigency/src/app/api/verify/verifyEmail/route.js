@@ -3,10 +3,10 @@ import { createClient } from "redis";
 
 export const POST = async(req) => {
     const client = createClient({
-        password: "zDxePzh0LGkEaMJvIB2s5lYuIft5MkZS",
+        password: NEXT_PUBLIC_REDIS_PASSWORD,
         socket: {
-            host: "redis-12654.c16.us-east-1-2.ec2.redns.redis-cloud.com",
-            port: 12654,
+            host: NEXT_PUBLIC_REDIS_HOST,
+            port: NEXT_PUBLIC_REDIS_PORT,
         },
     });
     client.on("error", (err) => {
