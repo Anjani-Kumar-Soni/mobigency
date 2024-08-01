@@ -15,28 +15,27 @@ const Form1 = ({ data, handleChange, increment }) => {
       body: JSON.stringify(data.email),
     });
     const res = await response.json();
-    console.log(res);
+    // console.log(res);
     setEmailVerified(true);
   };
   const handleSubmit = async () => {
     try {
-    const response = await fetch("/api/users/fetchData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data.email),
-    });
-    const res = await response.json();
-    if (res.status === 404) increment();
-    else {
-      toast.error("User already exists");
-      router.push("/Login");
+      const response = await fetch("/api/users/fetchData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data.email),
+      });
+      const res = await response.json();
+      if (res.status === 404) increment();
+      else {
+        toast.error("User already exists");
+        router.push("/Login");
+      }
+    } catch (e) {
+      toast.error(e.message);
     }
-  }
-  catch(e) {
-    console.log(e)
-  }
   };
   return (
     <div>

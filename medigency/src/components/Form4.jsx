@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { useState } from "react";
 
 const Form4 = ({ data, handleChange, setData, decrement }) => {
@@ -25,6 +24,29 @@ const Form4 = ({ data, handleChange, setData, decrement }) => {
   const [medicines, setMedicines] = useState([]);
   const [vacc, setVacc] = useState(false);
   const [hasTB, setHasTB] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/users/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    const res = await response.json();
+    // console.log(res)
+    if (res.status == 200) {
+      // console.log(res.message);
+      sessionStorage.setItem("email", data.email);
+      toast.success(res.message);
+      router.push("/Home");
+    } else {
+      // console.error(res.message);
+      toast.error(res.message);
+    }
+  };
+
   return (
     <div>
       <form>

@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import Form1 from "../../components/Form1";
 import Form2 from "../../components/Form2";
 import Form3 from "../../components/Form3";
@@ -55,27 +54,6 @@ const Page = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
     // console.log(e.target.name+" "+e.target.value)
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("/api/users/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    const res = await response.json();
-    // console.log(res)
-    if (res.status == 200) {
-      // console.log(res.message);
-      sessionStorage.setItem("email", data.email);
-      toast.success(res.message);
-      router.push("/Home");
-    } else {
-      // console.error(res.message);
-      toast.error(res.message);
-    }
   };
 
   const increment = () => {
@@ -133,7 +111,7 @@ const Page = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center h-[100vh] my-2">
+    <div className="flex items-center justify-center min-h-[100vh] my-2">
       <div className="p-3 bg-white max-w-lg w-full rounded-lg border border-t-2 border-primary">
         {getForm()}
         <div className="flex justify-center mt-5">
