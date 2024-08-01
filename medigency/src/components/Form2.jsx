@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const Form2 = ({ data, handleChange, increment, decrement }) => {
+const Form2 = ({ data, handleChange, increment, decrement, setData }) => {
   return (
     <div>
       <form>
@@ -61,18 +63,15 @@ const Form2 = ({ data, handleChange, increment, decrement }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="dob" className="leading-7 text-sm text-gray-600">
+            <label htmlFor="dob" className="leading-7 text-sm text-gray-600 mr-2">
               Date Of Birth
             </label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              placeholder="Enter your Home Address"
-              value={data.dob}
-              onChange={handleChange}
-              required
+            <DatePicker
               className="w-full border-b-4 bg-white rounded border border-third focus:border-second focus:ring-2 focus:ring-third text-base outline-none text-second py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              selected={data.dob}
+              dateFormat="dd/MM/yyyy"
+              onChange={(date) => setData({ ...data, dob: date })}
+              maxDate={new Date()}
             />
           </div>
         </div>

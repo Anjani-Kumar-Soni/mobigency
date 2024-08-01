@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -25,6 +26,8 @@ const Form4 = ({ data, handleChange, setData, decrement }) => {
   const [medicines, setMedicines] = useState([]);
   const [vacc, setVacc] = useState(false);
   const [hasTB, setHasTB] = useState(false);
+
+  const router=useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

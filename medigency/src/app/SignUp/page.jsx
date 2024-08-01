@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Form1 from "../../components/Form1";
 import Form2 from "../../components/Form2";
@@ -8,14 +7,13 @@ import Form3 from "../../components/Form3";
 import Form4 from "../../components/Form4";
 
 const Page = () => {
-  const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",
     userName: "",
     contact: "",
     homeAdd: "",
-    dob: "",
+    dob: new Date(),
     emergency: {
       userName: "",
       contact: "",
@@ -80,6 +78,7 @@ const Page = () => {
             handleChange={handleChange}
             increment={increment}
             decrement={decrement}
+            setData={setData}
           />
         );
       case 3:
