@@ -19,6 +19,7 @@ const Form1 = ({ data, handleChange, increment }) => {
     setEmailVerified(true);
   };
   const handleSubmit = async () => {
+    try {
     const response = await fetch("/api/users/fetchData", {
       method: "POST",
       headers: {
@@ -27,11 +28,15 @@ const Form1 = ({ data, handleChange, increment }) => {
       body: JSON.stringify(data.email),
     });
     const res = await response.json();
-    if (res.status === 400) increment();
+    if (res.status === 404) increment();
     else {
       toast.error("User already exists");
       router.push("/Login");
     }
+  }
+  catch(e) {
+    console.log(e)
+  }
   };
   return (
     <div>
