@@ -98,7 +98,7 @@ const Login = () => {
                 <span>
                   <Link
                     href="/SignUp"
-                    className="ml-1 font-bold cursor-pointer text-blue-600 mr-1"
+                    className="md:ml-1 font-bold cursor-pointer text-blue-600 mr-1"
                   >
                     Sign Up
                   </Link>
