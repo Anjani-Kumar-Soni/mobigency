@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import MainBody from "../../components/MainBody";
 import { useRouter } from "next/navigation";
 
-const Page = () => {
+const Home = () => {
   const router = useRouter();
   useEffect(() => {
     const email = sessionStorage.getItem("email");
@@ -13,4 +13,4 @@ const Page = () => {
   return <MainBody />;
 };
 
-export default Page;
+export default Home;

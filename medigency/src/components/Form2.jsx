@@ -1,12 +1,18 @@
+import { Bebas_Neue } from "next/font/google";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Form2 = ({ data, handleChange, increment, decrement, setData }) => {
   return (
     <div>
       <form>
-        <h3 className="font-bold text-center">Personal Details</h3>
+        <h3 className={`font-bold text-center ${bebas.className} text-lg`}>Personal Details</h3>
         <div className="px-4">
           <div className="mb-4">
             <label

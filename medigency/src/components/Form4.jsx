@@ -1,6 +1,12 @@
+import { Bebas_Neue } from "next/font/google";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Form4 = ({ data, handleChange, setData, decrement }) => {
   const [isFamilyDia, setIsFamilyDia] = useState(false);
@@ -27,7 +33,7 @@ const Form4 = ({ data, handleChange, setData, decrement }) => {
   const [vacc, setVacc] = useState(false);
   const [hasTB, setHasTB] = useState(false);
 
-  const router=useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +61,9 @@ const Form4 = ({ data, handleChange, setData, decrement }) => {
     <div>
       <form>
         <div className="px-4">
-          <h3 className="text-center font-bold">General Details</h3>
+          <h3 className={`text-center font-bold ${bebas.className} text-lg`}>
+            General Details
+          </h3>
           <div className="mb-4">
             <label
               htmlFor="bloodGroup"

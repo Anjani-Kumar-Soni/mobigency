@@ -3,8 +3,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { Bebas_Neue } from "next/font/google";
 
-const Page = () => {
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
 
   const router = useRouter();
@@ -37,14 +43,10 @@ const Page = () => {
     <div className="flex items-center justify-center h-screen">
       <div className="w-[50%]">
         <h1 className="font-bold">Mobigency</h1>
-        <p className="">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil vero
-          at vel facilis nesciunt fugit error excepturi, sit aspernatur.
-          Tenetur.
-        </p>
+        <p className="">Companion of your emergency hours</p>
       </div>
       <div className="p-3 bg-white max-w-md w-full rounded-lg border border-t-2 border-primary">
-        <h1 className="font-bold text-3xl my-4 text-center text-gray-600 uppercase">
+        <h1 className={`font-bold text-3xl my-4 text-center text-gray-600 uppercase ${bebas.className} text-xl`}>
           Login
         </h1>
         <form>
@@ -107,4 +109,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Login;

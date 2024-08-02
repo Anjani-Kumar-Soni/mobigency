@@ -6,7 +6,7 @@ import Form2 from "../../components/Form2";
 import Form3 from "../../components/Form3";
 import Form4 from "../../components/Form4";
 
-const Page = () => {
+const Signup = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -109,6 +109,7 @@ const Page = () => {
         );
     }
   };
+
   return (
     <div className="flex items-center justify-center min-h-[100vh] my-2">
       <div className="p-3 bg-white max-w-lg w-full rounded-lg border border-t-2 border-primary">
@@ -127,4 +128,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Signup;

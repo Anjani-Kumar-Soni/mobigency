@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const Page = () => {
+const Profile = () => {
   const router = useRouter();
   const [data, setData] = useState({});
   const fetchUserData = async (email) => {
@@ -11,7 +11,7 @@ const Page = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify( email ),
+      body: JSON.stringify(email),
     });
 
     if (res.ok) {
@@ -35,4 +35,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Profile;

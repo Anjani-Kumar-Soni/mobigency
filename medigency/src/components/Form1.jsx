@@ -1,7 +1,13 @@
+import { Bebas_Neue } from "next/font/google";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 // import { Checkmark } from "react-checkmark";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Form1 = ({ data, handleChange, increment }) => {
   const router = useRouter();
@@ -37,10 +43,12 @@ const Form1 = ({ data, handleChange, increment }) => {
       toast.error(e.message);
     }
   };
+
+
   return (
     <div>
       <form>
-        <h3 className="font-bold text-center">Create Account</h3>
+        <h3 className={`font-bold text-center ${bebas.className} text-lg`}>Create Account</h3>
         <div className="px-4">
           <div className="mb-4">
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">

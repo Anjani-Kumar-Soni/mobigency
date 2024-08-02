@@ -1,4 +1,10 @@
+import { Bebas_Neue } from "next/font/google";
 import React from "react";
+
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Form3 = ({ data, setData, increment, decrement }) => {
   return (
@@ -6,7 +12,7 @@ const Form3 = ({ data, setData, increment, decrement }) => {
       <form>
         <div className="px-4">
           <div className="mb-4">
-            <h3 className="text-center font-bold">Emergency Contact details</h3>
+            <h3 className={`text-center font-bold ${bebas.className} text-lg`}>Emergency Contact details</h3>
             <label
               htmlFor="emergency_name"
               className="leading-7 text-sm text-gray-600"
