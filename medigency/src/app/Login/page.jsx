@@ -40,13 +40,15 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-[50%]">
+    <div className="flex md:flex-row items-center justify-evenly h-screen w-full flex-col">
+      <div className="w-auto">
         <h1 className="font-bold">Mobigency</h1>
-        <p className="">Companion of your emergency hours</p>
+        <p>Companion of your emergency hours</p>
       </div>
       <div className="p-3 bg-white max-w-md w-full rounded-lg border border-t-2 border-primary">
-        <h1 className={`font-bold text-3xl my-4 text-center text-gray-600 uppercase ${bebas.className} text-xl`}>
+        <h1
+          className={`font-bold text-3xl my-4 text-center text-gray-600 uppercase ${bebas.className} text-xl`}
+        >
           Login
         </h1>
         <form>
@@ -90,17 +92,19 @@ const Login = () => {
             >
               Submit
             </button>
-            <div className="flex justify-center mt-5">
-              <p className="text-gray-500">{"Don't"} have an account?</p>
-              <span>
-                <Link
-                  href="/SignUp"
-                  className="ml-1 font-bold cursor-pointer text-blue-600 mr-1"
-                >
-                  Sign Up
-                </Link>
-              </span>
-              <span className="text-gray-500"> now</span>
+            <div className="flex md:flex-row justify-center mt-5 flex-col">
+              <div className="text-gray-500">{"Don't"} have an account?</div>
+              <div>
+                <span>
+                  <Link
+                    href="/SignUp"
+                    className="ml-1 font-bold cursor-pointer text-blue-600 mr-1"
+                  >
+                    Sign Up
+                  </Link>
+                </span>
+                <span className="text-gray-500"> now</span>
+              </div>
             </div>
           </div>
         </form>
