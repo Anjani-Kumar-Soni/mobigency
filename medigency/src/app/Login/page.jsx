@@ -39,6 +39,9 @@ const Login = () => {
     }
   };
 
+  let emailRegex=[];
+  let passRegex=[];
+
   return (
     <div className="flex md:flex-row items-center justify-evenly h-screen w-full flex-col">
       <div className="w-auto">

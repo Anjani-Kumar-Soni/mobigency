@@ -67,7 +67,7 @@ const Signup = () => {
         return (
           <Form1
             data={data}
-            handleChange={handleChange}
+            setData={setData}
             increment={increment}
           />
         );
@@ -103,7 +103,7 @@ const Signup = () => {
         return (
           <Form1
             data={data}
-            handleChange={handleChange}
+            setData={setData}
             decrement={decrement}
           />
         );
